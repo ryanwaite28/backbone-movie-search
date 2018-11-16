@@ -1,6 +1,6 @@
 # Backbone JS APP
 ### OMDb API: The Open Movie Database
-App: https://github.com/ryanwaite28/backbone-movie-search.git
+App: https://ryanwaite28.github.io/backbone-movie-search/
 <br/>
 
 ![Backbone](backbone.png)
