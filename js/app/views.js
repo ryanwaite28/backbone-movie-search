@@ -73,12 +73,14 @@ const AppView = Backbone.View.extend({
   },
   initialize: function() {
     this.saved_movie_imdbIDs = [];
+    this.saved_movies_length_text = $('#saved_movies_length_text');
 
     App.Collections.search = new SearchMoviesCollection();
     App.Collections.saved = new SavedMoviesCollection();
 
     App.Collections.saved.fetch();
     App.Collections.saved.each(this.addSavedMovie, this);
+    this.saved_movies_length_text.text(App.Collections.saved.length);
 
     App.Collections.search.on('add', this.addSearchMovie);
     App.Collections.saved.on('add', this.addSavedMovie, this);
@@ -93,6 +95,7 @@ const AppView = Backbone.View.extend({
     let movieView = new SavedMovieView({ model: movie });
     $('#saved_movies_div').append(movieView.render().el);
     this.saved_movie_imdbIDs.push(movie.get("imdbID"));
+    this.saved_movies_length_text.text(App.Collections.saved.length);
   },
 
   searchMovies: function() {
