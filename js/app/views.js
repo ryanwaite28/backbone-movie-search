@@ -106,7 +106,7 @@ const AppView = Backbone.View.extend({
       console.log(json);
       $('#movie_query').val('');
       if(json.Error){
-        self.flash_search_msg(json.Error);
+        M.toast({html: json.Error});
         return;
       }
       self.searchResults = json.Search;
