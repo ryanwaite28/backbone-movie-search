@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Backbone JS App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="video-movie-clipart-1.jpg">
+
+    <script id="saved_movie_template" type="text/x-handlebars-template">
+      <div id="{{ imdbID }}" class="card-image">
+        {{#if Poster}}<img src="{{ Poster }}">{{^}}<img src="">{{/if}}
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+          <h2>{{ Title }}</h2>
+          <p>
+            <strong>Year</strong>: {{ Year }}<br/>
+            <strong>Type</strong>: {{ Type }}<br/>
+            <strong>imdbID</strong>: {{ imdbID }}
+          </p>
+          <br/>
+          <p>
+            <a title="{{ Title }} - More Info" href="https://www.imdb.com/title/{{ imdbID }}/">See Full Page</a>
+          </p>
+        </div>
+        <div class="card-action">
+          <a class="waves-effect waves-light btn red remove_movie_btn" data-movie_id="{{ imdbID }}">Remove</a>
+        </div>
+      </div>
+    </script>
+
+    <script id="search_movie_template" type="text/x-handlebars-template">
+      <div id="{{ imdbID }}" class="card-image">
+        {{#if Poster}}<img src="{{ Poster }}">{{^}}<img src="">{{/if}}
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+          <h2>{{ Title }}</h2>
+          <p>
+            <strong>Year</strong>: {{ Year }}<br/>
+            <strong>Type</strong>: {{ Type }}<br/>
+            <strong>imdbID</strong>: {{ imdbID }}
+          </p>
+          <br/>
+          <p>
+            <a title="{{ Title }} - More Info" href="https://www.imdb.com/title/{{ imdbID }}/">See Full Page</a>
+          </p>
+        </div>
+        <div class="card-action">
+          <a class="waves-effect waves-light btn blue add_movie_btn" data-movie_id="{{ imdbID }}">Add to Saved</a>
+        </div>
+      </div>
+    </script>
+
+    <script src="js/libs/jquery.min.js"></script>
+    <script src="js/libs/underscore.min.js"></script>
+    <script src="js/libs/handlebars.min.js"></script>
+    <script src="js/libs/backbone.min.js"></script>
+    <script src="js/libs/backbone.localStorage.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone-localstorage.js/1.1.16/backbone.localStorage-min.js"></script> -->
+    <!-- <script src="materialize/js/materialize.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script src="js/app.js"></script>
+
+    <script src="js/app/models.js"></script>
+    <script src="js/app/collections.js"></script>
+    <script src="js/app/views.js"></script>
+  </head>
+
+  <body>
+    <div id="backbone_app">
+      <nav class="black">
+        <div class="nav-wrapper">
+          <a href="#" class="brand-logo center">Movie Search</a>
+        </div>
+      </nav>
+      <br/>
+
+      <div class="container">
+        <div class="row">
+          <div class="col s12">
+            <ul class="tabs text-center">
+              <li class="tab col s6"><a href="#search_tab">Search</a></li>
+              <li class="tab col s6"><a class="active" href="#saved_tab">Saved</a></li>
+            </ul>
+          </div>
+        </div>
+        <br/>
+        <div class="row">
+          <div id="search_tab" class="col s12">
+            <div class="row">
+              <div class="input-field col s12">
+                <input id="movie_query" type="text" class="validate">
+                <label class="active" for="movie_query">Movie Query</label>
+              </div>
+              <p class="text-center">
+                <a id="search_btn" class="waves-effect waves-light btn green">Search</a>
+              </p>
+              <p id="search_msg"></p>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <div class="" id="search_movies_div">
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="saved_tab" class="col s12">
+            <div class="" id="saved_movies_div">
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <script src="js/script.js"></script>
+    </div>
+  </body>
+</html>
