@@ -99,7 +99,7 @@ const AppView = Backbone.View.extend({
     let self = this;
     let query = $('#movie_query').val();
     if(!query){ return; }
-    let api_url = 'http://www.omdbapi.com/?s=' + query + '&apikey=65a36b6f';
+    let api_url = 'https://www.omdbapi.com/?s=' + query + '&apikey=65a36b6f';
     fetch(api_url)
     .then(function(resp){ return resp.json() })
     .then(function(json){
